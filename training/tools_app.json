@@ -1,0 +1,38 @@
+[
+  {
+    "name": "catat_pengeluaran",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "amount": { "type": "integer" },
+        "category": { "type": "string" },
+        "item": { "type": "string" },
+        "date": { "type": "string" }
+      },
+      "required": ["amount", "category"]
+    }
+  },
+  {
+    "name": "catat_masuk",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "amount": { "type": "integer" },
+        "category": { "type": "string" },
+        "item": { "type": "string" },
+        "date": { "type": "string" }
+      },
+      "required": ["amount", "category"]
+    }
+  },
+  {
+    "name": "tanya",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "field": { "type": "string" }
+      },
+      "required": ["field"]
+    }
+  }
+]

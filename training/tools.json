@@ -1,0 +1,114 @@
+[
+  {
+    "name": "add_expense",
+    "description": "Catat pengeluaran atau uang yang keluar",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "integer",
+          "description": "Jumlah uang dalam rupiah, angka bulat tanpa titik/koma. Contoh: 15000 untuk '15 ribu' atau '15rb'"
+        },
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "Tanggal transaksi dalam format YYYY-MM-DD. Kalau user bilang 'kemarin', 'besok', 'tanggal 21', hitung dari tanggal hari ini. Kalau nggak disebutkan tanggal, kosongkan."
+        },
+        "category": {
+          "type": "string",
+          "enum": ["makanan", "transportasi", "hiburan", "tagihan", "kesehatan", "belanja", "lainnya"],
+          "description": "Kategori pengeluaran"
+        },
+        "merchant": {
+          "type": "string",
+          "description": "Nama tempat atau penerima pembayaran, opsional"
+        },
+        "note": {
+          "type": "string",
+          "description": "Catatan tambahan, opsional"
+        }
+      },
+      "required": ["amount", "category"]
+    }
+  },
+  {
+    "name": "add_income",
+    "description": "Catat pemasukan atau uang yang masuk",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "integer",
+          "description": "Jumlah uang dalam rupiah, angka bulat tanpa titik/koma. Contoh: 15000 untuk '15 ribu' atau '15rb'"
+        },
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "Tanggal transaksi dalam format YYYY-MM-DD. Kalau user bilang 'kemarin', 'besok', 'tanggal 21', hitung dari tanggal hari ini. Kalau nggak disebutkan tanggal, kosongkan."
+        },
+        "source": {
+          "type": "string",
+          "description": "Sumber pemasukan, contoh: gaji, THR, freelance, bonus, hadiah"
+        },
+        "note": {
+          "type": "string",
+          "description": "Catatan tambahan, opsional"
+        }
+      },
+      "required": ["amount", "source"]
+    }
+  },
+  {
+    "name": "query_expenses",
+    "description": "Lihat ringkasan atau total pengeluaran pada periode tertentu",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "period": {
+          "type": "string",
+          "enum": ["hari_ini", "minggu_ini", "bulan_ini"],
+          "description": "Periode yang ditanyakan"
+        },
+        "category": {
+          "type": "string",
+          "enum": ["makanan", "transportasi", "hiburan", "tagihan", "kesehatan", "belanja", "lainnya"],
+          "description": "Filter kategori, opsional. Kosongkan untuk semua kategori"
+        }
+      },
+      "required": ["period"]
+    }
+  },
+  {
+    "name": "delete_expense",
+    "description": "Hapus catatan pengeluaran yang cocok dengan kata kunci",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "keyword": {
+          "type": "string",
+          "description": "Kata kunci pencarian catatan yang ingin dihapus, contoh: bakso, gojek, kopi"
+        }
+      },
+      "required": ["keyword"]
+    }
+  },
+  {
+    "name": "set_budget",
+    "description": "Atur anggaran atau budget untuk kategori tertentu",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string",
+          "enum": ["makanan", "transportasi", "hiburan", "tagihan", "kesehatan", "belanja", "lainnya"],
+          "description": "Kategori yang diatur anggarannya"
+        },
+        "amount": {
+          "type": "integer",
+          "description": "Jumlah anggaran dalam rupiah, angka bulat tanpa titik/koma"
+        }
+      },
+      "required": ["category", "amount"]
+    }
+  }
+]
