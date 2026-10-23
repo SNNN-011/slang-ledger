@@ -1,12 +1,18 @@
-# Otak Lokal Nano Money
+# Slang Ledger
 
-Model bahasa kecil yang membaca kalimat keuangan sehari-hari dan mengubahnya menjadi
-transaksi terstruktur (jenis, nominal, item, kategori). Model ini dipakai aplikasi
-**Nano Money** pada mode **AI Lokal** — berjalan di HP, tanpa internet, dan tanpa
-mengirim teks ke mana pun.
+> A small on-device model that turns casual, code-mixed Indonesian speech into
+> structured finance entries.
 
-Repo ini berisi bobot model, jembatan JNI, skrip pembuat data latih, set uji, dan
-catatan pemasangan. Repo aplikasinya: <https://github.com/SNNN-011/Nano-Money>.
+Model bahasa kecil yang membaca kalimat keuangan sehari-hari — "kemarin jajan bakso
+25rb", "dapat transferan dari nyokap 500 ribu", "isi bensin 60rb" — lalu mengubahnya
+menjadi catatan terstruktur: jenis, nominal, item, kategori, dan tanggal. Berjalan di
+HP, tanpa internet, dan tanpa mengirim teks ke mana pun.
+
+Model ini awalnya dibangun untuk aplikasi **Nano Money** (mode **AI Lokal**), tetapi
+bobotnya sendiri tidak terikat ke aplikasi itu. Repo ini berisi bobot model, jembatan
+JNI, skrip pembuat data latih, set uji, dan catatan pemasangan.
+
+Repo aplikasinya: <https://github.com/SNNN-011/Nano-Money>.
 
 ---
 
